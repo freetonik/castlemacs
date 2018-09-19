@@ -1,0 +1,388 @@
+#+SETUPFILE: ~/code/org-themes/org-html-themes/setup/theme-readtheorg.setup
+#+LANGUAGE: en
+#+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
+#+OPTIONS: \n:t
+
+* Intro
+
+Emacs is +an extensible, customizable text editor+ a framework for creating any text editor you want. The goal of Castlemacs is to build a simple, modern and minimalist Emacs setup tailored to macOS while following these
+
+** Core principles:
+
+1. *Be beginner-friendly*. Anyone should be able to start using Castlemacs just like they can start using VS Code, Sublime, etc.
+2. *Respect macOS.* Common system-wide keybindings work as you expect.
+3. *Respect Emacs.* Never break vanilla Emacs compatibility. Always provide a way to go "full Emacs" if user so desires.
+4. *No layers of complexity.* No custom configuration layers, no DSL, nothing new. Simple =init.el=, packages installed and configured via =use-package=.
+5. *Go minimal when possible*. For example, use lightweight =avy= instead of full-featured =Helm=.
+
+* FAQ
+
+*Q*: Is Castlemacs compatible with non-macOS systems?
+*Y*: Yes! /Nothing/ binds Castlemacs to macOS except for
+
+*Q*: Is this similar to Spacemacs?
+*Y*: No. Spacemacs is a big, custom distribution with additional layers on top of Emacs. Castlemacs is a simply a pre-configured Emacs. You don't need to learn anything new if you know your way around Emacs.
+
+*Q*: Will Castlemacs support <something>?
+*Y*: Probably, unless it goes against the Core Principles. Feel free to open an issue.
+
+*Q*: Does this setup work well in the terminal?
+*Y*: It works, but it is not built for terminal use, since one of the Core Principles is to behave like a native macOS application.
+
+* Installation
+
+** Install Emacs
+
+*Best option*: [[https://github.com/railwaycat/homebrew-emacsmacport/releases][download the binary from here]]. Here is the [[https://s3.amazonaws.com/emacs-mac-port/emacs-26.1-mac-7.1.zip][direct link to download version 26.1-mac-7.1]], which is the latest version as of today (Sep 19, 2018).
+
+Unzip and move the file to =Applications=, just like any other mac app.
+
+*Alternative option 1*: Install Emacs via brew. This will build Emacs from source. It might take some time and can possibly fail.
+
+#+BEGIN_SRC sh
+brew tap railwaycat/emacsmacport
+brew install emacs-mac
+#+END_SRC
+
+*Alternative option 2*: Install Emacs via brew cask.
+
+#+BEGIN_SRC
+brew tap railwaycat/emacsmacport
+brew cask install emacs-mac
+#+END_SRC
+
+*** Why not "official" build?
+
+A canonical version of Emacs for macOS can be found at https://emacsformacosx.com/. However, this version has a number of disadvantages:
+
+- Due to some build options related to graphics, certain extensions like Powerline produce incorrect colors (RGB space issue)
+- No emoji support (if you're into this kind of stuff)
+- No sub-pixel smooth scrolling
+- No native support for =org-protocol=
+
+** Install dependencies
+
+Castlemacs relies on [[https://github.com/ggreer/the_silver_searcher][The Silver Searcher]] to quickly search within a project. Install it:
+
+#+BEGIN_SRC sh
+brew install the_silver_searcher
+#+END_SRC
+
+Castlemacs requires =aspell=, a Free and Open Source spell checker. Install it:
+
+#+BEGIN_SRC sh
+brew install aspell
+#+END_SRC
+
+** Install Castlemacs
+
+Backup current Emacs config (if exists), then clone Castlemacs from Github:
+
+#+BEGIN_SRC sh
+mv ~/.emacs.d ~/.emacs.d.bak
+git clone https://github.com/freetonik/castlemacs ~/.emacs.d
+#+END_SRC
+
+Launch Emacs and wait for several minutes. On the first launch it will download and install packages. When it's done and the status line in the bottom stops outputting text, restart Emacs.
+
+Don't worry about warning messages on the first launch, they will go away after first restart.
+
+** Setup keyboard
+
+*I highly recommend changing Caps Lock to Control* by going to System Preferences → Keyboard → Modifier Keys. This way you will have a more comfortable Control under your left pinky.
+
+* Usage
+
+** Modifier keys
+
+Castlemacs takes advantage of two facts:
+
+1. =Command= key is used in macOS for all major system shortcuts, so users have muscle memory;
+2. Emacs recognizes a =Super= key, but almost never uses it by default.
+
+So, =Command= key becomes =Super=
+
+| Name    | On Mac keyboard | Emacs key |
+|---------+-----------------+-----------|
+| Super   | Command ⌘       | =s=       |
+| Meta    | Left Alt ⌥      | =M=       |
+| Control | Control ⌃       | =C=       |
+
+In this document we'll refer to keys with their common macOS names: Cmd, Alt, Ctrl.
+
+** Basics
+
+Basic combinations with =Command= work as expected.
+
+| Binding       | Description           | Emacs default |
+|---------------+-----------------------+---------------|
+| =Escape=      | Cancel current action | =C-g=         |
+| =Cmd-z=       | Undo                  | =c-_=         |
+| =Cmd-Shift-z= | Redo                  | N/A           |
+| =Cmd-s=       | Save file             | =C-x C-s=     |
+| =Cmd-o=       | Open file             | =C-x C-f=     |
+| =Cmd-a=       | Select whole buffer   | =C-x h=       |
+| =Cmd-q=       | Quit Emacs            | =C-x C-c=     |
+| =Cmd-Shift-p= | Open command palette  | =M-x=         |
+| =Ctrl-c c=    | Open config file      | N/A           |
+
+** Navigation
+
+*** Basic movement
+
+Buttons I, J, K, L form a natural alternative to arrow keys. You can move around by holding Cmd while using these keys, without leaving the home row (press Cmd with your right thumb).
+
+(See http://tonsky.me/blog/cursor-keys/ for some background and motivation.)
+
+| Binding | Description | Emacs default | Alternative |
+|---------+-------------+---------------+-------------|
+| =Cmd-i= | Go up       | =C-p=         | Arrow UP    |
+| =Cmd-k= | Go down     | =C-n=         | Arrow DOWN  |
+| =Cmd-j= | Go left     | =C-b=         | Arrow LEFT  |
+| =Cmd-l= | Go right    | =C-f=         | Arrow RIGHT |
+
+*** Simple jumping within text
+
+=Cmd= or =Fn= with arrows work just like everywhere else in macOS. Holding =Shift= selects the region under movement.
+
+| Binding       | Description            | Emacs default |
+|---------------+------------------------+---------------|
+| =Cmd-LEFT=    | Beginning of line†     | =C-a=         |
+| =Cmd-RIGHT=   | End of line            | =C-e=         |
+| =Cmd-UP=      | Beginning of buffer    | =M-<=         |
+| =Cmd-DOWN=    | End of buffer          | =M->=         |
+| =Fn-UP=       | Page up                | =C-v=         |
+| =Fn-DOWN=     | Page down              | =M-v=         |
+| =Fn-Alt-UP=   | Page up other window   | =C-M-v=       |
+| =Fn-Alt-DOWN= | Page down other window | =C-M-S-v=     |
+
+† "Beginning of line" is a smart command. It moves cursor to the first non-whitespace character. Press it again, and it moves cursor to the real beginning of line. You can keep pressing it to jump cursor between those two positions.
+
+*** Smart jumping within buffer and between buffers
+
+Many commands in Emacs write the current position into a mark ring. For example, if you were editing line 6, then performed a search with =Cmd+f=, did something and want to come back, press =Cmd+,= to go back to line 6. =Cmd+.= to go forward.
+
+| Binding | Description        | Emacs default |
+|---------+--------------------+---------------|
+| =Cmd-,= | Go to prev. mark   | =C-u SPC=     |
+| =Cmd-.= | Go to next mark    | N/A           |
+| =Cmd-<= | Go to prev. buffer | =C-x LEFT=    |
+| =Cmd->= | Go to next buffer  | =C-x RIGHT=   |
+
+Holding =Shift= 'lifts' the meaning of this movement, and instead of jumping to a previous/next position in the current buffer, it jumps to a previous/next buffer in current window.
+
+** Search and replace
+
+| Binding | Description    | Emacs default |
+|---------+----------------+---------------|
+| =Cmd-f= | Search in file | =C-s=         |
+| =Cmd-r= | Visual replace | N/A           |
+
+** Editing
+
+*** Words and lines
+
+| Binding         | Description                     | Emacs default |
+|-----------------+---------------------------------+---------------|
+| =Cmd-RET=       | New line below                  | N/A           |
+| =Cmd-Shift-RET= | New line above                  | N/A           |
+| =Cmd-/=         | Comment line                    | =C-x C-;=     |
+| =Alt-u=         | Upcase current word or region   | =M-u (same)=  |
+| =Alt-l=         | Downcase current word or region | =M-l (same)=  |
+| =Alt-c=         | Capitalize word                 | =M-c (same)=  |
+
+*** Multiple cursors
+
+| Binding       | Description                       |
+|---------------+-----------------------------------|
+| =Cmd-d=       | Select next occurrence†           |
+| =Cmd-Shift-d= | Select all occurrences            |
+| =Alt-Cmd-d=   | Add cursor to each line in region |
+
+† When no text is selected, =Cmd-d= adds new cursor to the next line.
+
+While multiple cursors are active:
+
+| Binding              | Description                                |
+|----------------------+--------------------------------------------|
+| =C-g= or =ESC=       | Quit multiple cursors mode                 |
+| =Ctrl-'=             | Hide/show lines where cursors are active   |
+| =Ctrl-v= and =Alt-v= | Scroll the screen to center on each cursor |
+
+Learn about all features of multiple cursors at https://github.com/magnars/multiple-cursors.el
+
+** Window Management
+
+*** Splitting windows
+
+| Binding | Description         | Emacs default |
+|---------+---------------------+---------------|
+| =Cmd-1= | Kill other windows  | =C-x 1=       |
+| =Cmd-2= | Split horizontally  | =C-x 2=       |
+| =Cmd-3= | Split vertically    | =C-x 3=       |
+| =Cmd-0= | Kill current window | =C-x 0=       |
+| =Cmd-w= | Kill current window | =C-x 0=       |
+
+*** Moving between windows
+
+| Binding       | Description | Alternative      |
+|---------------+-------------+------------------|
+| =Cmd-[=       | Move left   | =Ctrl-Cmd-LEFT=  |
+| =Cmd-]=       | Move right  | =Ctrl-Cmd-RIGHT= |
+| =Cmd-Shift-[= | Move up     | =Ctrl-Cmd-UP=    |
+| =Cmd-Shift-]= | Move down   | =Ctrl-Cmd-DOWN=  |
+
+*** Restoring window configuration
+
+This is =winner-mode=. It captures the current window configuration and allows you to restore it after it gets changed by some Emacs action.
+
+| Binding     | Description                             | Emacs default |
+|-------------+-----------------------------------------+---------------|
+| =Cmd-Alt-[= | Restore previous configuration          | C-c LEFT      |
+| =Cmd-Alt-]= | Go to next configuration (undo restore) | C-c RIGHT     |
+
+** Project Management
+
+
+Castlemacs uses [[https://github.com/bbatsov/projectile][Projectile]] for project management. There are a lot of features, and most of them are discoverable from the so-called "command map".
+
+| Binding          | Description                 | Emacs default |
+|------------------+-----------------------------+---------------|
+| =Ctrl-Cmd-p=     | Open projectile command map | =C-c p=       |
+| =Ctrl-Cmd-p= =p= | Switch project              | =C-c p p=     |
+| =Cmd-p=          | Find file in project        | =C-c p f=     |
+| =Cmd-Shift-f=    | Search in project           | =C-c p s s=   |
+
+Note that 'Emacs default' doesn't make much sense in this context, since Projectile is not part of Emacs. I try to provide commonly used combinations for these cases: =C-c p= is what Projectile's author suggests, for example, and many configs follow this suggestion.
+
+While in search mode:
+
+| Binding      | Description               |
+|--------------+---------------------------|
+| =Ctrl-Alt-m= | Preview current file      |
+| =Ctrl-Alt-n= | Next file and preview     |
+| =Ctrl-Alt-p= | Previous file and preview |
+| =ESC=        | Quit search               |
+
+** Git
+
+*** Git gutter
+
+Changes to the current file are shown in the gutter on left side. You can change the appearance of those symbols: search for =git-gutter= section in =init.el=. To see a list of all available colors run =Alt-x counsel-colors-emacs=. See [[https://github.com/syohex/emacs-git-gutter][Git-gutter docs]] for more info.
+
+*** Magit
+
+Castlemacs uses [[https://magit.vc/][Magit]], a wonderful package that aspires to be a complete Git porcelain.
+
+| Binding | Description  |
+|---------+--------------|
+| =Cmd-g= | Magit status |
+
+From this status window you can do everything. Here are the basic commands available within Magit status window:
+
+| Binding | Description                 |
+|---------+-----------------------------|
+| =s=     | Stage current file or chunk |
+| =c=     | Open commit window          |
+| =F=     | Open pull window            |
+| =P=     | Open push window            |
+
+There are cheat sheets available within Magit. Refer to [[https://magit.vc/manual/][Magit User Manuals]] for more info.
+
+** Terminal (shell)
+
+There is a toggleable popup shell which is actually a full blown terminal emulator (=ansi-term=). It uses your system default shell and loads the appropriate environment.
+
+| Binding | Description  |
+|---------+--------------|
+| =Cmd-== | Toggle shell |
+
+** Programming
+
+*** Languages and modes
+
+Emacs supports many programming languages by default. Castlemacs adds support for YAML, Markdown, Web mode (HTML, CSS, PHP, templating, etc), Emmet.
+
+Feel free to add more features by sending a PR or opening an issue.
+
+*** Code completion
+
+Code completion popup shows up immediately when possible. When popup is active:
+
+| Binding     | Description                               |
+|-------------+-------------------------------------------|
+| =Enter=     | Select current candidate                  |
+| =Alt-DIGIT= | Quickly complete with one of first 10     |
+| =TAB=       | Complete common part                      |
+| =F1=        | Show documentation for selected candidate |
+| =Ctrl-w=    | Show source for selected candidate        |
+|             |                                           |
+
+Note that not all backends support the last two commands.
+
+This feature is provided by Company mode package. Learn more about Company mode at http://company-mode.github.io/
+
+** Spellchecking, thesaurus, definition
+
+*** Spellchecking
+
+Spellchecking requires an external command to be available. See [[Install dependencies]].
+
+| Binding       | Description                    | Emacs default |
+|---------------+--------------------------------+---------------|
+| =Cmd-\=       | Correct current word via popup | N/A           |
+| =Cmd-Ctlr-\=  | Correct current word via list  | =M-$=         |
+
+The last three lines in the popup allow to add current word to your personal dictionary or accept it as correct for current session (as long as Emacs is open) or current buffer.
+
+When correcting via list, you can press =i= to quickly add the word to your personal dictionary.
+
+Note that personal dictionary is located at =~/.aspell.LANG.pws= by default.
+
+*** Thesaurus
+
+You can quickly search for synonyms. This requires an internet connection since the package uses https://www.powerthesaurus.org/ as backend.
+
+| Binding       | Description                         |
+|---------------+-------------------------------------|
+| =Cmd-Shift-\= | Search for synonyms of current word |
+
+Select a synonym and press =Enter= to replace word.
+
+
+*** Word definition
+
+This requires an internet connection.
+
+| Binding | Description         |
+|---------+---------------------|
+| =Alt-\= | Define current word |
+
+** Org mode
+
+Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system. Learn more about Org at https://orgmode.org/. (Caution! This is a black hole!)
+
+Castlemacs provides some nice defaults:
+
+- Visually indent sections
+- Tab in source blocks acts like in corresponding major mode
+- Code highlighting works in code blocks
+- When TODO changes state, history goes to logbook
+- When TODO becomes DONE, current time and date are recorded
+- Shift selection with arrows work (unless you're in a spot where Org mode's default actions kick in)
+
+Put your org files in =~/org=. If you use Dropbox or similar cloud provider, I suggest storing your actual org folder there, and providing a symlink like so:
+
+#+BEGIN_SRC
+ln -s ~/Dropbox/Org ~/org
+#+END_SRC
+
+Org agenda looks inside all the files in =~/org=.
+
+* Why this name?
+
+Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as //the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
+
+https://upload.wikimedia.org/wikipedia/commons/d/df/N%C3%A4ht%C3%A4vyys_liikennemerkki_20170523.jpg
+
+Coincidentally, I live in Finland ;-)
