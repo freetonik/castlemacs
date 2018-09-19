@@ -297,6 +297,13 @@ There is a toggleable popup shell which is actually a full blown terminal emulat
 |---------+--------------|
 | =Cmd-== | Toggle shell |
 
+** File tree and open buffers
+
+| Binding         | Description                                  |
+|-----------------+----------------------------------------------|
+| =Cmd-b=         | Switch to another buffer or open recent file |
+| =Cmd-Shift-b-== | Toggle filetree                              |
+
 ** Programming
 
 *** Languages and modes
