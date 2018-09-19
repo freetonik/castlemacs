@@ -3,8 +3,8 @@
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
 #+OPTIONS: \n:t
 
-[[.screenshots/main.png]]
-[[.screenshots/magit_spellcheck.png]]
+[[screenshots/main.png]]
+[[screenshots/magit_spellcheck.png]]
 
 * Intro
 
@@ -273,7 +273,7 @@ While in search mode:
 
 Changes to the current file are shown in the gutter on left side. You can change the appearance of those symbols: search for =git-gutter= section in =init.el=. To see a list of all available colors run =Alt-x counsel-colors-emacs=. See [[https://github.com/syohex/emacs-git-gutter][Git-gutter docs]] for more info.
 
-[[.screenshots/git_gutter.png]]
+[[screenshots/git_gutter.png]]
 
 *** Magit
 
@@ -361,7 +361,7 @@ You can quickly search for synonyms. This requires an internet connection since 
 
 Select a synonym and press =Enter= to replace word.
 
-[[.screenshots/thesaurus.png]]
+[[screenshots/thesaurus.png]]
 
 *** Word definition
 
