@@ -157,8 +157,9 @@
 ;; VISUALS
 
 
-;; Use default font and make it 16pt in height
-(set-face-attribute 'default nil :height 160)
+;; Font
+(set-face-attribute 'default nil :font "Menlo 15")
+(setq-default line-spacing 2)
 
 
 ;; Nice and simple default light theme.
