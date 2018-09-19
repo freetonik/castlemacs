@@ -3,6 +3,9 @@
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
 #+OPTIONS: \n:t
 
+[[.screenshots/main.png]]
+[[.screenshots/magit_spellcheck.png]]
+
 * Intro
 
 Emacs is +an extensible, customizable text editor+ a framework for creating any text editor you want. The goal of Castlemacs is to build a simple, modern and minimalist Emacs setup tailored to macOS while following these
@@ -270,6 +273,8 @@ While in search mode:
 
 Changes to the current file are shown in the gutter on left side. You can change the appearance of those symbols: search for =git-gutter= section in =init.el=. To see a list of all available colors run =Alt-x counsel-colors-emacs=. See [[https://github.com/syohex/emacs-git-gutter][Git-gutter docs]] for more info.
 
+[[.screenshots/git_gutter.png]]
+
 *** Magit
 
 Castlemacs uses [[https://magit.vc/][Magit]], a wonderful package that aspires to be a complete Git porcelain.
@@ -356,6 +361,7 @@ You can quickly search for synonyms. This requires an internet connection since 
 
 Select a synonym and press =Enter= to replace word.
 
+[[.screenshots/thesaurus.png]]
 
 *** Word definition
 
