@@ -1,7 +1,6 @@
 #+SETUPFILE: ~/code/org-themes/org-html-themes/setup/theme-readtheorg.setup
 #+LANGUAGE: en
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
-#+OPTIONS: \n:t
 
 [[screenshots/main.png]]
 [[screenshots/magit_spellcheck.png]]
@@ -21,16 +20,20 @@ Emacs is +an extensible, customizable text editor+ a framework for creating any 
 * FAQ
 
 *Q*: Is Castlemacs compatible with non-macOS systems?
-*Y*: Yes! /Nothing/ binds Castlemacs to macOS except for
+
+*A*: Yes! /Nothing/ binds Castlemacs to macOS except for
 
 *Q*: Is this similar to Spacemacs?
-*Y*: No. Spacemacs is a big, custom distribution with additional layers on top of Emacs. Castlemacs is a simply a pre-configured Emacs. You don't need to learn anything new if you know your way around Emacs.
+
+*A*: No. Spacemacs is a big, custom distribution with additional layers on top of Emacs. Castlemacs is a simply a pre-configured Emacs. You don't need to learn anything new if you know your way around Emacs.
 
 *Q*: Will Castlemacs support <something>?
-*Y*: Probably, unless it goes against the Core Principles. Feel free to open an issue.
+
+*A*: Probably, unless it goes against the Core Principles. Feel free to open an issue.
 
 *Q*: Does this setup work well in the terminal?
-*Y*: It works, but it is not built for terminal use, since one of the Core Principles is to behave like a native macOS application.
+
+*A*: It works, but it is not built for terminal use, since one of the Core Principles is to behave like a native macOS application.
 
 * Installation
 
@@ -394,8 +397,8 @@ Org agenda looks inside all the files in =~/org=.
 
 * Why this name?
 
-Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as //the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
+Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as /the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
 
-https://upload.wikimedia.org/wikipedia/commons/d/df/N%C3%A4ht%C3%A4vyys_liikennemerkki_20170523.jpg
+[[https://upload.wikimedia.org/wikipedia/commons/d/df/N%C3%A4ht%C3%A4vyys_liikennemerkki_20170523.jpg]]
 
 Coincidentally, I live in Finland ;-)
