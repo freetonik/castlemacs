@@ -498,4 +498,4 @@ The symbol is derived from a shape of a castle. Here, for example, is the Borgho
 
 [[./images/borgholm-castle.jpg]]
 
-[[./images/nähtävyys_liikennemerkki.jpg]]
+[[./images/roadsign.jpg]]
