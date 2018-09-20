@@ -2,6 +2,7 @@
 #+LANGUAGE: en
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
 
+[[https://img.shields.io/github/tag/freetonik/castlemacs.svg?label=release&style=flat-square]]
 [[https://img.shields.io/badge/license-MIT-green.svg?style=flat-square]]
 
 [[./screenshots/main2.png]]
