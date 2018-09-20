@@ -2,8 +2,9 @@
 #+LANGUAGE: en
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
 
-[[./screenshots/main.png]]
-[[./screenshots/magit_spellcheck.png]]
+[[https://img.shields.io/badge/license-MIT-green.svg?style=flat-square]]
+
+[[./screenshots/main2.png]]
 
 * Features
 - Compatibility with common macOS keybindings
@@ -18,7 +19,6 @@
 :PROPERTIES:
 :TOC: this
 :END:
-  -  [[#features][Features]]
   -  [[#intro][Intro]]
     -  [[#core-principles][Core principles:]]
   -  [[#faq][FAQ]]
@@ -510,6 +510,8 @@ ln -s ~/Dropbox/Org ~/org
 #+END_SRC
 
 Org agenda looks inside all the files in =~/org=.
+
+* History
 
 * Why this name?
 
