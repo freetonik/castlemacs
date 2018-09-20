@@ -79,8 +79,10 @@ Emacs is +an extensible, customizable text editor+ a framework for creating any 
 *Is Castlemacs compatible with non-macOS systems?*
 Yes! /Nothing/ binds Castlemacs to macOS except for some conventions. As long as you have some key on your keyboard that can play a role of =Super= (e.g. =windows= key), you're good to go.
 
+*I don't know Emacs. Can I use Castlemacs or is it hard?*. You don't need to know Emacs, but it will help. The goal of this project is to make a setup that is suitable for absolute beginners.
+
 *Is this similar to Spacemacs?*
-No. Spacemacs is a big, custom distribution with additional layers on top of Emacs. Castlemacs is a simply a pre-configured Emacs. You don't need to learn anything new if you know your way around Emacs.
+No. Spacemacs is a big, custom distribution with additional layers on top of Emacs. Castlemacs is simply a pre-configured Emacs. You don't need to learn anything new if you know your way around Emacs.
 
 *Will Castlemacs support <something>?*
 Probably, unless it goes against the Core Principles. Feel free to open an issue.
