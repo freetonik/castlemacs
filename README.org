@@ -2,8 +2,17 @@
 #+LANGUAGE: en
 #+TITLE: Castlemacs: modern, minimalist Emacs for macOS ⌘
 
-[[screenshots/main.png]]
-[[screenshots/magit_spellcheck.png]]
+[[./screenshots/main.png]]
+[[./screenshots/magit_spellcheck.png]]
+
+* Features
+- Compatibility with common macOS keybindings
+- Ergonomic keybindings that follow simple, sensible rules
+- Easy windows management and movement
+- Easy movement between point in the file and between other files
+- Multiple cursors, project manager, Git front end, file tree, terminal
+- Handy spellchecker, built-in thesaurus and word definition lookup
+- A handful of tiny, useful helper functions
 
 * Intro
 
@@ -170,7 +179,7 @@ Many commands in Emacs write the current position into a mark ring. For example,
 
 | Binding | Description        | Emacs default |
 |---------+--------------------+---------------|
-| =Cmd-,= | Go to prev. mark   | =C-u SPC=     |
+| =Cmd-⸴=   | Go to prev. mark   | =C-u SPC=     |
 | =Cmd-.= | Go to next mark    | N/A           |
 | =Cmd-<= | Go to prev. buffer | =C-x LEFT=    |
 | =Cmd->= | Go to next buffer  | =C-x RIGHT=   |
@@ -212,7 +221,7 @@ While multiple cursors are active:
 | Binding              | Description                                |
 |----------------------+--------------------------------------------|
 | =C-g= or =ESC=       | Quit multiple cursors mode                 |
-| =Ctrl-'=             | Hide/show lines where cursors are active   |
+| =Ctrl-’=             | Hide/show lines where cursors are active   |
 | =Ctrl-v= and =Alt-v= | Scroll the screen to center on each cursor |
 
 Learn about all features of multiple cursors at https://github.com/magnars/multiple-cursors.el
@@ -276,7 +285,7 @@ While in search mode:
 
 Changes to the current file are shown in the gutter on left side. You can change the appearance of those symbols: search for =git-gutter= section in =init.el=. To see a list of all available colors run =Alt-x counsel-colors-emacs=. See [[https://github.com/syohex/emacs-git-gutter][Git-gutter docs]] for more info.
 
-[[screenshots/git_gutter.png]]
+[[./screenshots/git_gutter.png]]
 
 *** Magit
 
@@ -364,7 +373,7 @@ You can quickly search for synonyms. This requires an internet connection since 
 
 Select a synonym and press =Enter= to replace word.
 
-[[screenshots/thesaurus.png]]
+[[./screenshots/thesaurus.png]]
 
 *** Word definition
 
@@ -399,6 +408,6 @@ Org agenda looks inside all the files in =~/org=.
 
 Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as /the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
 
-[[https://upload.wikimedia.org/wikipedia/commons/d/df/N%C3%A4ht%C3%A4vyys_liikennemerkki_20170523.jpg]]
+[[./images/nähtävyys_liikennemerkki.jpg]]
 
 Coincidentally, I live in Finland ;-)
