@@ -385,6 +385,7 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Visually find and replace text
 (use-package visual-regexp
   :config
+  (define-key global-map (kbd "M-s-f") 'vr/replace)
   (define-key global-map (kbd "s-r") 'vr/replace))  ;; Cmd+r find and replace
 
 
