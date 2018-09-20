@@ -8,7 +8,9 @@
 
 -----
 
-[[Quick Start]] | [[CHANGELOG.org][Changelog]]
+#+BEGIN_CENTER
+[[#quick-start][Quick Start]] | [[CHANGELOG.org][Changelog]]
+#+END_CENTER
 
 -----
 
