@@ -8,15 +8,7 @@
 
 -----
 
-
 [[README.org#quick-start][Quick Start]] | [[CHANGELOG.org][Changelog]]
-
-#+BEGIN_EXPORT html
-<p align="center">
-  <a href="README.org#quick-start">Quick Start</a> |
-  <a href="CHANGELOG.org">Changelog</a>
-</p>
-#+END_EXPORT
 
 -----
 
