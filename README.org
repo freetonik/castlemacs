@@ -42,6 +42,7 @@
       -  [[#deleting-text][Deleting text]]
       -  [[#multiple-cursors][Multiple cursors]]
       -  [[#indentation][Indentation]]
+      -  [[#region][Region]]
     -  [[#window-management][Window Management]]
       -  [[#splitting-windows][Splitting windows]]
       -  [[#moving-between-windows][Moving between windows]]
@@ -55,6 +56,7 @@
     -  [[#programming][Programming]]
       -  [[#languages-and-modes][Languages and modes]]
       -  [[#code-completion][Code completion]]
+      -  [[#emmet][Emmet]]
     -  [[#spellchecking-thesaurus-definition][Spellchecking, thesaurus, definition]]
       -  [[#spellchecking][Spellchecking]]
       -  [[#thesaurus][Thesaurus]]
@@ -308,6 +310,15 @@ Emacs is pretty good at indenting stuff automatically. Pressing =TAB= on a line 
 | =C-x TAB= | Rigidly change indentation of line or region |
 
 
+*** Region
+
+Command with apostrophe expands selection. Holding shift contracts it.
+
+| Binding       | Description     |
+|---------------+-----------------|
+| =Cmd-’=       | Expand region   |
+| =Cmd-Shift-’= | Contract region |
+
 ** Window Management
 
 Note that in Emacs-talk, a pane is called a =window=.
@@ -433,6 +444,14 @@ Code completion popup shows up immediately when possible. When popup is active:
 Note that not all backends support the last two commands.
 
 This feature is provided by Company mode package. Learn more about Company mode at http://company-mode.github.io/
+
+*** Emmet
+
+| Binding                  | Description  |
+|--------------------------+--------------|
+| =Ctrl-Enter= or =Ctrl-j= | Expand Emmet |
+
+Learn more about [[https://github.com/smihica/emmet-mode][emmet mode]].
 
 ** Spellchecking, thesaurus, definition
 

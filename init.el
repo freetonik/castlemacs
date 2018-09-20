@@ -1,7 +1,9 @@
 ;;; -*- lexical-binding: t -*-
 
+
 ;; ====
 ;; INIT
+
 
 ;; Package system and sources.
 (require 'package)
@@ -74,6 +76,7 @@
 ;; =============
 ;; SANE DEFAULTS
 
+
 ;; Smoother and nicer scrolling
 (setq scroll-margin 10
    scroll-step 1
@@ -93,11 +96,14 @@
 (setq auto-save-default nil)
 (setq make-backup-files nil)
 
+
 ;; Warn only when opening files bigger than 100MB
 (setq large-file-warning-threshold 100000000)
 
+
 ;; Move file to trash instead of removing.
 (setq-default delete-by-moving-to-trash t)
+
 
 ;; Revert (update) buffers automatically when underlying files are changed externally.
 (global-auto-revert-mode t)
@@ -119,8 +125,8 @@
 (delete-selection-mode 1)          ; Delete selected text when typing
 (global-unset-key (kbd "s-p"))     ; Don't print
 
-;; We need Emacs kill ring and system clipboard to be independent. Simpleclip is the solution to that.
 
+;; We need Emacs kill ring and system clipboard to be independent. Simpleclip is the solution to that.
 (use-package simpleclip
   :config
   (simpleclip-mode 1))
@@ -153,6 +159,7 @@
 (global-set-key (kbd "s-z") 'undo-tree-undo)
 (global-set-key (kbd "s-Z") 'undo-tree-redo)
 
+
 ;; =======
 ;; VISUALS
 
@@ -182,6 +189,7 @@
 
 ;; Highlight current line
 (global-hl-line-mode 1)
+
 
 ;; Show parens and other pairs.
 (use-package smartparens
@@ -219,6 +227,7 @@
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   (setq neo-hidden-regexp-list '("venv" "\\.pyc$" "~$" "\\.git" "__pycache__" ".DS_Store"))
   (global-set-key (kbd "s-B") 'neotree-toggle))           ;; Cmd+Shift+b toggle tree
+
 
 ;; Show vi-like tilde in the fringe on empty lines.
 (use-package vi-tilde-fringe
@@ -281,6 +290,7 @@
 (global-set-key (kbd "s-<up>") 'beginning-of-buffer)  ;; First line
 (global-set-key (kbd "s-<down>") 'end-of-buffer)      ;; Last line
 
+
 ;; Thanks to Bozhidar Batsov
 ;; http://emacsredux.com/blog/2013/]05/22/smarter-navigation-to-the-beginning-of-a-line/
 (defun smarter-move-beginning-of-line (arg)
@@ -309,6 +319,7 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-a") 'smarter-move-beginning-of-line)
 (global-set-key (kbd "s-<left>") 'smarter-move-beginning-of-line)
 
+
 ;; Many commands in Emacs write the current position into mark ring.
 ;; These custom functions allow for quick movement backward and forward.
 ;; For example, if you were editing line 6, then did a search with Cmd+f, did something and want to come back,
@@ -335,6 +346,7 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Same keys with Shift will move you back and forward between open buffers.
 (global-set-key (kbd "s-<") 'previous-buffer)
 (global-set-key (kbd "s->") 'next-buffer)
+
 
 ;; ============
 ;; TEXT EDITING
@@ -402,10 +414,12 @@ point reaches the beginning or end of the buffer, stop there."
 ;; =================
 ;; WINDOW MANAGEMENT
 
+
 ;; This is rather radical, but saves from a lot of pain in the ass.
 ;; When split is automatic, always split windows vertically
 (setq split-height-threshold 0)
 (setq split-width-threshold nil)
+
 
 ;; Go to other windows easily with one keystroke Cmd-something.
 (global-set-key (kbd "s-1") (kbd "C-x 1"))  ;; Cmd-1 kill other windows (keep 1)
@@ -436,6 +450,7 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "M-s-[") 'winner-undo)
 (global-set-key (kbd "M-s-]") 'winner-redo)
 
+
 ;; ==================
 ;; PROJECT MANAGEMENT
 
@@ -448,8 +463,10 @@ point reaches the beginning or end of the buffer, stop there."
   (projectile-mode +1)
   )
 
+
 ;; ==========================================
 ;; MENUS AND COMPLETION (not code completion)
+
 
 ;; Use minimalist Ivy for most things.
 (use-package ivy
@@ -530,6 +547,8 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; ========
 ;; TERMINAL
+
+
 (use-package shell-pop
   :config
   (custom-set-variables
@@ -539,6 +558,8 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; ===============
 ;; CODE COMPLETION
+
+
 (use-package company
   :config
   (setq company-idle-delay 0.1)
@@ -551,16 +572,19 @@ point reaches the beginning or end of the buffer, stop there."
 (defun my-web-mode-hook ()
   (set (make-local-variable 'company-backends) '(company-css company-web-html company-yasnippet company-files)))
 
+
 ;; ===========================
 ;; SPELLCHECKING AND THESAURUS
+
 
 ;; Spellchecking requires an external command to be available. Install aspell on your Mac, then make it the default checker for Emacs' ispell. Note that personal dictionary is located at ~/.aspell.LANG.pws by default.
 (setq ispell-program-name "aspell")
 
 
-;;
+;; Popup window for spellchecking
 (use-package flyspell-correct)
 (use-package flyspell-correct-popup)
+
 
 ;; Enable spellcheck on the fly for all text modes. This includes org, latex and LaTeX.
 (add-hook 'text-mode-hook 'flyspell-mode)
@@ -590,12 +614,15 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (global-set-key (kbd "M-\\") 'define-word-at-point))
 
+
 ;; ===========
 ;; PROGRAMMING
+
 
 (use-package yaml-mode)
 (use-package haml-mode)
 (use-package markdown-mode)
+
 
 ;; Web-mode is an autonomous emacs major-mode for editing web templates.
 ;; HTML documents can embed parts (CSS / JavaScript) and blocks (client / server side).
@@ -614,6 +641,7 @@ point reaches the beginning or end of the buffer, stop there."
   (add-to-list 'auto-mode-alist '("\\.css?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.xml?\\'" . web-mode)))
 
+
 ;; Emmet
 (use-package emmet-mode
   :commands emmet-mode
@@ -623,8 +651,8 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.
-
 ;; Ctrl+j or Ctrl+Enter to expand
+
 
 ;; ========
 ;; ORG MODE
@@ -652,6 +680,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; Open config file by pressing C-x and then c
 (global-set-key (kbd "C-x c") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
 
 ;; =======
 ;; THE END
