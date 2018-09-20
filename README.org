@@ -529,8 +529,6 @@ ln -s ~/Dropbox/Org ~/org
 Org agenda looks inside all the files in =~/org=
 
 
-* History
-
 * Why this name?
 
 Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as /the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
