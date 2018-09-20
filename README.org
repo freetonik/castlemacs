@@ -6,6 +6,12 @@
 
 [[./screenshots/main2.png]]
 
+-----
+
+[[Quick Start]] | [[CHANGELOG.org][Changelog]]
+
+-----
+
 * Features
 - Compatibility with common macOS keybindings
 - Ergonomic keybindings that follow simple, sensible rules
@@ -15,12 +21,20 @@
 - Handy spellchecker, built-in thesaurus and word definition lookup
 - A handful of tiny, useful helper functions
 
+* Quick start
+
+#+BEGIN_SRC sh
+brew install the_silver_searcher aspell
+mv ~/.emacs.d ~/.emacs.d.bak
+git clone https://github.com/freetonik/castlemacs ~/.emacs.d
+#+END_SRC
+
 * Table of Contents
 :PROPERTIES:
 :TOC: this
 :END:
   -  [[#intro][Intro]]
-    -  [[#core-principles][Core principles:]]
+    -  [[#core-principles][Core principles]]
   -  [[#faq][FAQ]]
   -  [[#installation][Installation]]
     -  [[#install-emacs][Install Emacs]]
@@ -68,7 +82,7 @@
 
 Emacs is +an extensible, customizable text editor+ a framework for creating any text editor you want. The goal of Castlemacs is to build a simple, modern and minimalist Emacs setup tailored to macOS while following these
 
-** Core principles:
+** Core principles
 
 1. *Be beginner-friendly*. Anyone should be able to start using Castlemacs just like they can start using VS Code, Sublime, etc.
 2. *Respect macOS.* Common system-wide keybindings work as you expect.
