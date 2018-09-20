@@ -156,6 +156,15 @@ Buttons I, J, K, L form a natural alternative to arrow keys. You can move around
 | =Cmd-j= | Go left     | =C-b=         | Arrow LEFT  |
 | =Cmd-l= | Go right    | =C-f=         | Arrow RIGHT |
 
+*** Moving text
+
+Hold =Alt= to move current line up or down. This is sometimes called "bubbling".
+
+| Binding    | Description    |
+|------------+----------------|
+| =Alt-UP=   | Move line up   |
+| =Alt-DOWN= | Move line down |
+
 *** Simple jumping within text
 
 =Cmd= or =Fn= with arrows work just like everywhere else in macOS. Holding =Shift= selects the region under movement.
@@ -188,23 +197,27 @@ Holding =Shift= 'lifts' the meaning of this movement, and instead of jumping to 
 
 ** Search and replace
 
-| Binding | Description    | Emacs default |
-|---------+----------------+---------------|
-| =Cmd-f= | Search in file | =C-s=         |
-| =Cmd-r= | Visual replace | N/A           |
+| Binding     | Description    | Emacs default |
+|-------------+----------------+---------------|
+| =Cmd-f=     | Search in file | =C-s=         |
+| =Cmd-r=     | Visual replace | N/A           |
+| =Cmd-Alt-f= | Visual replace | N/A           |
+
+[[./screenshots/replace.png]]
 
 ** Editing
 
 *** Words and lines
 
-| Binding         | Description                     | Emacs default |
-|-----------------+---------------------------------+---------------|
-| =Cmd-RET=       | New line below                  | N/A           |
-| =Cmd-Shift-RET= | New line above                  | N/A           |
-| =Cmd-/=         | Comment line                    | =C-x C-;=     |
-| =Alt-u=         | Upcase current word or region   | =M-u (same)=  |
-| =Alt-l=         | Downcase current word or region | =M-l (same)=  |
-| =Alt-c=         | Capitalize word                 | =M-c (same)=  |
+| Binding         | Description                                     | Emacs default |
+|-----------------+-------------------------------------------------+---------------|
+| =Cmd-RET=       | New line below                                  | N/A           |
+| =Cmd-Shift-RET= | New line above                                  | N/A           |
+| =Cmd-/=         | Comment line                                    | =C-x C-;=     |
+| =Cmd-j=         | Join with next line or join all lines in region | N/A           |
+| =Alt-u=         | Upcase current word or region                   | =M-u (same)=  |
+| =Alt-l=         | Downcase current word or region                 | =M-l (same)=  |
+| =Alt-c=         | Capitalize word                                 | =M-c (same)=  |
 
 *** Multiple cursors
 
@@ -225,6 +238,16 @@ While multiple cursors are active:
 | =Ctrl-v= and =Alt-v= | Scroll the screen to center on each cursor |
 
 Learn about all features of multiple cursors at https://github.com/magnars/multiple-cursors.el
+
+*** Indentation
+
+Emacs is pretty good at indenting stuff automatically. Pressing =TAB= on a line or region will indent it as needed. Castlemacs assumes that we never use tabs, only spaces, and use 2 spaces by default in most languages.
+
+| Binding   | Description                                  |
+|-----------+----------------------------------------------|
+| =TAB=     | Indent current line or region correctly      |
+| =C-x TAB= | Rigidly change indentation of line or region |
+
 
 ** Window Management
 
@@ -408,6 +431,8 @@ Org agenda looks inside all the files in =~/org=.
 
 Castlemacs takes advantage of the heavily used Command key on macOS. The Command key icon ⌘ is a 'looped square': it's known as /the place of interest sign/ when used on information signs, a practice which started in Finland in the 1950s, spreading to the other Nordic countries in the 1960s.
 
-[[./images/nähtävyys_liikennemerkki.jpg]]
+The symbol is derived from a shape of a castle. Here, for example, is the Borgholm Castle in Sweden:
 
-Coincidentally, I live in Finland ;-)
+[[./images/borgholm-castle.jpg]]
+
+[[./images/nähtävyys_liikennemerkki.jpg]]
