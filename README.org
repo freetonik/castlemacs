@@ -8,9 +8,13 @@
 
 -----
 
-#+BEGIN_CENTER
-[[#quick-start][Quick Start]] | [[CHANGELOG.org][Changelog]]
-#+END_CENTER
+
+[[README.org#quick-start][Quick Start]] | [[CHANGELOG.org][Changelog]]
+
+<p align="center">
+  <a href="README.org#quick-start">Quick Start</a> |
+  <a href="CHANGELOG.org">Changelog</a>
+</p>
 
 -----
 
