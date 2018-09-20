@@ -308,7 +308,11 @@ Emacs is pretty good at indenting stuff automatically. Pressing =TAB= on a line 
 
 ** Window Management
 
+Note that in Emacs-talk, a pane is called a =window=.
+
 *** Splitting windows
+
+These bindings are based on default Emacs conventions, but save you one keypress. Also, =Cmd-w= closes current window just like a browser tab.
 
 | Binding | Description         | Emacs default |
 |---------+---------------------+---------------|
@@ -319,6 +323,8 @@ Emacs is pretty good at indenting stuff automatically. Pressing =TAB= on a line 
 | =Cmd-w= | Kill current window | =C-x 0=       |
 
 *** Moving between windows
+
+Move left and right just like in iTerm. Hold shift to make it up and down.
 
 | Binding       | Description | Alternative      |
 |---------------+-------------+------------------|
