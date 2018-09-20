@@ -21,7 +21,7 @@
 - Handy spellchecker, built-in thesaurus and word definition lookup
 - A handful of tiny, useful helper functions
 
-* Quick start
+* Quick Start
 
 #+BEGIN_SRC sh
 brew install the_silver_searcher aspell
