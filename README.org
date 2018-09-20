@@ -490,6 +490,9 @@ This requires an internet connection.
 |---------+---------------------|
 | =Alt-\= | Define current word |
 
+[[./screenshots/word_definition.png]]
+
+
 ** Org mode
 
 Org mode is for keeping notes, maintaining TODO lists, planning projects, and authoring documents with a fast and effective plain-text system. Learn more about Org at https://orgmode.org/. (Caution! This is a black hole!)
@@ -509,7 +512,8 @@ Put your org files in =~/org=. If you use Dropbox or similar cloud provider, I s
 ln -s ~/Dropbox/Org ~/org
 #+END_SRC
 
-Org agenda looks inside all the files in =~/org=.
+Org agenda looks inside all the files in =~/org=
+
 
 * History
 
