@@ -9,10 +9,58 @@
 - Compatibility with common macOS keybindings
 - Ergonomic keybindings that follow simple, sensible rules
 - Easy windows management and movement
-- Easy movement between point in the file and between other files
+- Easy movement between points in the file and between files
 - Multiple cursors, project manager, Git front end, file tree, terminal
 - Handy spellchecker, built-in thesaurus and word definition lookup
 - A handful of tiny, useful helper functions
+
+* Table of Contents
+:PROPERTIES:
+:TOC: this
+:END:
+  -  [[#features][Features]]
+  -  [[#intro][Intro]]
+    -  [[#core-principles][Core principles:]]
+  -  [[#faq][FAQ]]
+  -  [[#installation][Installation]]
+    -  [[#install-emacs][Install Emacs]]
+      -  [[#why-not-official-build][Why not "official" build?]]
+    -  [[#install-dependencies][Install dependencies]]
+    -  [[#install-castlemacs][Install Castlemacs]]
+    -  [[#setup-keyboard][Setup keyboard]]
+  -  [[#usage][Usage]]
+    -  [[#modifier-keys][Modifier keys]]
+    -  [[#basics][Basics]]
+    -  [[#navigation][Navigation]]
+      -  [[#basic-movement][Basic movement]]
+      -  [[#moving-text][Moving text]]
+      -  [[#simple-jumping-within-text][Simple jumping within text]]
+      -  [[#smart-jumping-within-buffer-and-between-buffers][Smart jumping within buffer and between buffers]]
+    -  [[#search-and-replace][Search and replace]]
+    -  [[#editing][Editing]]
+      -  [[#words-and-lines][Words and lines]]
+      -  [[#deleting-text][Deleting text]]
+      -  [[#multiple-cursors][Multiple cursors]]
+      -  [[#indentation][Indentation]]
+    -  [[#window-management][Window Management]]
+      -  [[#splitting-windows][Splitting windows]]
+      -  [[#moving-between-windows][Moving between windows]]
+      -  [[#restoring-window-configuration][Restoring window configuration]]
+    -  [[#project-management][Project Management]]
+    -  [[#git][Git]]
+      -  [[#git-gutter][Git gutter]]
+      -  [[#magit][Magit]]
+    -  [[#terminal-shell][Terminal (shell)]]
+    -  [[#file-tree-and-open-buffers][File tree and open buffers]]
+    -  [[#programming][Programming]]
+      -  [[#languages-and-modes][Languages and modes]]
+      -  [[#code-completion][Code completion]]
+    -  [[#spellchecking-thesaurus-definition][Spellchecking, thesaurus, definition]]
+      -  [[#spellchecking][Spellchecking]]
+      -  [[#thesaurus][Thesaurus]]
+      -  [[#word-definition][Word definition]]
+    -  [[#org-mode][Org mode]]
+  -  [[#why-this-name][Why this name?]]
 
 * Intro
 
@@ -188,7 +236,7 @@ Many commands in Emacs write the current position into a mark ring. For example,
 
 | Binding | Description        | Emacs default |
 |---------+--------------------+---------------|
-| =Cmd-⸴=   | Go to prev. mark   | =C-u SPC=     |
+| =Cmd-⸴=  | Go to prev. mark   | =C-u SPC=     |
 | =Cmd-.= | Go to next mark    | N/A           |
 | =Cmd-<= | Go to prev. buffer | =C-x LEFT=    |
 | =Cmd->= | Go to next buffer  | =C-x RIGHT=   |
@@ -218,6 +266,17 @@ Holding =Shift= 'lifts' the meaning of this movement, and instead of jumping to 
 | =Alt-u=         | Upcase current word or region                   | =M-u (same)=  |
 | =Alt-l=         | Downcase current word or region                 | =M-l (same)=  |
 | =Alt-c=         | Capitalize word                                 | =M-c (same)=  |
+
+*** Deleting text
+
+| Binding               | Description           | Emacs default |
+|-----------------------+-----------------------+---------------|
+| =Alt-BACKSPACE=       | Delete word backwards | N/A           |
+| =Alt-Shift-BACKSPACE= | Delete word forwards  | =M-d=         |
+| =Cmd-BACKSPACE=       | Delete current line   | N/A           |
+| =Ctrl-k=              | Delete to end of line | =Ctrl-k=      |
+| =Ctrl-d=              | Delete character      | =Ctrl-d=      |
+
 
 *** Multiple cursors
 
