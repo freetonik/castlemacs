@@ -25,7 +25,7 @@
 * Quick Start
 
 #+BEGIN_SRC sh
-brew install the_silver_searcher aspell
+brew install gnutls the_silver_searcher aspell 
 mv ~/.emacs.d ~/.emacs.d.bak
 git clone https://github.com/freetonik/castlemacs ~/.emacs.d
 #+END_SRC
@@ -152,6 +152,12 @@ Castlemacs requires =aspell=, a Free and Open Source spell checker. Install it:
 
 #+BEGIN_SRC sh
 brew install aspell
+#+END_SRC
+
+We also need `gnutls` — GNU Transport Layer Security (TLS) Library:
+
+#+BEGIN_SRC sh
+brew install gnutls
 #+END_SRC
 
 ** Install Castlemacs
