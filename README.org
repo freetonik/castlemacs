@@ -113,22 +113,12 @@ It works, but it is not built for terminal use, since one of the Core Principles
 
 ** Install Emacs
 
-*Best option*: [[https://github.com/railwaycat/homebrew-emacsmacport/releases][download the binary from here]]. Here is the [[https://s3.amazonaws.com/emacs-mac-port/emacs-26.1-mac-7.1.zip][direct link to download version 26.1-mac-7.1]], which is the latest version as of today (Sep 19, 2018).
-
-Unzip and move the file to =Applications=, just like any other mac app.
-
-*Alternative option 1*: Install Emacs via brew. This will build Emacs from source. It might take some time and can possibly fail.
+Install Emacs via brew. This will build Emacs from source. It might take some time and can possibly fail.
 
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
-brew install emacs-mac
-#+END_SRC
-
-*Alternative option 2*: Install Emacs via brew cask.
-
-#+BEGIN_SRC
-brew tap railwaycat/emacsmacport
-brew cask install emacs-mac
+brew install emacs-mac --with-natural-title-bar
+ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 #+END_SRC
 
 *** Why not "official" build?

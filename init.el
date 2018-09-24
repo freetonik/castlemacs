@@ -164,6 +164,12 @@
 ;; VISUALS
 
 
+;; Enable transparent title bar on macOS
+(when (memq window-system '(mac ns))
+  (add-to-list 'default-frame-alist '(ns-appearance . light)) ;; {light, dark}
+  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
+
+
 ;; Font
 (set-face-attribute 'default nil :font "Menlo 15")
 (setq-default line-spacing 2)
