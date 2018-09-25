@@ -171,7 +171,8 @@
 
 
 ;; Font
-(set-face-attribute 'default nil :font "Menlo 15")
+(when (member "menlo" (font-family-list))
+  (set-face-attribute 'default nil :font "Menlo 15"))
 (setq-default line-spacing 2)
 
 
