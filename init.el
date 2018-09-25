@@ -690,6 +690,9 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Open config file by pressing C-x and then c
 (global-set-key (kbd "C-x c") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
+;; Open private config file by pressing C-x and then p
+;; Contain custom settings to private.el to ensure easy Castlemacs updates.
+(global-set-key (kbd "C-x p") (lambda () (interactive) (find-file "~/.emacs.d/private.el")))
 
 ;; =======
 ;; THE END
