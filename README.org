@@ -201,8 +201,8 @@ Basic combinations with =Command= work as expected.
 | =Cmd-a=       | Select whole buffer      | =C-x h=       |
 | =Cmd-q=       | Quit Emacs               | =C-x C-c=     |
 | =Cmd-Shift-p= | Open command palette     | =M-x=         |
-| =Ctrl-x c=    | Open config file         | N/A           |
-| =Ctrl-x p=    | Open private config file | N/A           |
+| =Ctrl-x c=    | Open private config file | N/A           |
+| =Ctrl-x C=    | Open init config file    | N/A           |
 
 ** Navigation
 
