@@ -190,18 +190,19 @@ In this document we'll refer to keys with their common macOS names: Cmd, Alt, Ct
 
 Basic combinations with =Command= work as expected.
 
-| Binding       | Description           | Emacs default |
-|---------------+-----------------------+---------------|
-| =Escape=      | Cancel current action | =C-g=         |
-| =Cmd-z=       | Undo                  | =c-_=         |
-| =Cmd-Shift-z= | Redo                  | N/A           |
-| =Cmd-s=       | Save file             | =C-x C-s=     |
-| =Cmd-Shift-s= | Save file as          | =C-x C-w=     |
-| =Cmd-o=       | Open file             | =C-x C-f=     |
-| =Cmd-a=       | Select whole buffer   | =C-x h=       |
-| =Cmd-q=       | Quit Emacs            | =C-x C-c=     |
-| =Cmd-Shift-p= | Open command palette  | =M-x=         |
-| =Ctrl-x c=    | Open config file      | N/A           |
+| Binding       | Description              | Emacs default |
+|---------------+--------------------------+---------------|
+| =Escape=      | Cancel current action    | =C-g=         |
+| =Cmd-z=       | Undo                     | =c-_=         |
+| =Cmd-Shift-z= | Redo                     | N/A           |
+| =Cmd-s=       | Save file                | =C-x C-s=     |
+| =Cmd-Shift-s= | Save file as             | =C-x C-w=     |
+| =Cmd-o=       | Open file                | =C-x C-f=     |
+| =Cmd-a=       | Select whole buffer      | =C-x h=       |
+| =Cmd-q=       | Quit Emacs               | =C-x C-c=     |
+| =Cmd-Shift-p= | Open command palette     | =M-x=         |
+| =Ctrl-x c=    | Open private config file | N/A           |
+| =Ctrl-x C=    | Open init config file    | N/A           |
 
 ** Navigation
 

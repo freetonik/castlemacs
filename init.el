@@ -687,9 +687,12 @@ point reaches the beginning or end of the buffer, stop there."
 (setq org-agenda-files '("~/org"))
 
 
-;; Open config file by pressing C-x and then c
-(global-set-key (kbd "C-x c") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+;; Open config file by pressing C-x and then C
+(global-set-key (kbd "C-x C") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 
+;; Open private config file by pressing C-x and then c
+;; Contain custom settings to private.el to ensure easy Castlemacs updates.
+(global-set-key (kbd "C-x c") (lambda () (interactive) (find-file "~/.emacs.d/private.el")))
 
 ;; =======
 ;; THE END
