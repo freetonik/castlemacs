@@ -25,10 +25,14 @@
 * Quick Start
 
 #+BEGIN_SRC sh
-brew install gnutls the_silver_searcher aspell 
+brew install gnutls the_silver_searcher aspell
 mv ~/.emacs.d ~/.emacs.d.bak
 git clone https://github.com/freetonik/castlemacs ~/.emacs.d
 #+END_SRC
+
+* Note to Mojave users
+
+In macOS Mojave Emacs build might fail due to some changes in Xcode command line tools. Xcode command line tools *must* be pointed to the release version of Xcode 10 instead of the beta version. Use xcode-select to accomplish this.
 
 * Table of Contents
 :PROPERTIES:
