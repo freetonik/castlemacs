@@ -173,6 +173,8 @@ Don't worry about warning messages on the first launch, they will go away after 
 
 *I highly recommend changing Caps Lock to Control* by going to System Preferences → Keyboard → Modifier Keys. This way you will have a more comfortable Control under your left pinky.
 
+If you use Japanese Magic Keyboard, then you don't have to do anything, since =control= is in a good place already.
+
 * Usage
 
 ** Modifier keys
