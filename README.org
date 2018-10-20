@@ -111,7 +111,7 @@ Probably, unless it goes against the Core Principles. Feel free to open an issue
 *Does this setup work well in the terminal?*
 It works, but it is not built for terminal use, since one of the Core Principles is to behave like a native macOS application.
 
-*Why is it called Castlemacs?* See [[Why this name?]]
+*Why is it called Castlemacs?* See [[#why-this-name][Why this name?]]
 
 *Where do I store my private config?* You can store your regular private config in =private.el=. This file will not be changed in Castlemacs, so you don't have worry about conflicts.
 
