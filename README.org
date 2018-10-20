@@ -478,7 +478,7 @@ Learn more about [[https://github.com/smihica/emmet-mode][emmet mode]].
 
 *** Spellchecking
 
-Spellchecking requires an external command to be available. See [[Install dependencies]].
+Spellchecking requires an external command to be available. See [[#install-dependencies][Install dependencies]].
 
 | Binding       | Description                    | Emacs default |
 |---------------+--------------------------------+---------------|
