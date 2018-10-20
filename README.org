@@ -9,7 +9,7 @@
 
 -----
 
-[[README.org#quick-start][Quick Start]] | [[CHANGELOG.org][Changelog]]
+[[#installation][Installation]] | [[CHANGELOG.org][Changelog]]
 
 -----
 
