@@ -112,7 +112,7 @@ Download Emacs from [[https://emacsformacosx.com/][emacsformacosx.com]]. That's 
 
 *** Alternative version (advanced)
 
-The "simplest way" is the canonical Emacs distribution for macOS. However, this it has a number of disadvantages:
+The "simplest way" is the canonical Emacs distribution for macOS. However, it has a number of disadvantages:
 
 - Due to some build options related to graphics, certain extensions like Powerline produce incorrect colors (RGB space issue)
 - No emoji support (if you're into this kind of stuff)
