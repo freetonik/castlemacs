@@ -31,10 +31,11 @@
   -  [[#faq][FAQ]]
   -  [[#installation][Installation]]
     -  [[#install-emacs][Install Emacs]]
-      -  [[#why-not-official-build][Why not "official" build?]]
+      -  [[#alternative-version-advanced][Alternative version (advanced)]]
     -  [[#install-dependencies][Install dependencies]]
     -  [[#install-castlemacs][Install Castlemacs]]
     -  [[#setup-keyboard][Setup keyboard]]
+    -  [[#note-to-mojave-users][Note to Mojave users]]
   -  [[#usage][Usage]]
     -  [[#modifier-keys][Modifier keys]]
     -  [[#basics][Basics]]
@@ -107,22 +108,24 @@ It works, but it is not built for terminal use, since one of the Core Principles
 
 ** Install Emacs
 
-Install Emacs via brew. This will build Emacs from source. It might take some time and can possibly fail.
+Download Emacs from [[https://emacsformacosx.com/][emacsformacosx.com]]. That's it!
+
+*** Alternative version (advanced)
+
+The "simplest way" is the canonical Emacs distribution for macOS. However, this it has a number of disadvantages:
+
+- Due to some build options related to graphics, certain extensions like Powerline produce incorrect colors (RGB space issue)
+- No emoji support (if you're into this kind of stuff)
+- No sub-pixel smooth scrolling
+- No native support for =org-protocol=
+
+If these are important to you, consider installing Mitsuharu Yamamoto's port instead.
 
 #+BEGIN_SRC sh
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-natural-title-bar
 ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 #+END_SRC
-
-*** Why not "official" build?
-
-A canonical version of Emacs for macOS can be found at https://emacsformacosx.com/. However, this version has a number of disadvantages:
-
-- Due to some build options related to graphics, certain extensions like Powerline produce incorrect colors (RGB space issue)
-- No emoji support (if you're into this kind of stuff)
-- No sub-pixel smooth scrolling
-- No native support for =org-protocol=
 
 ** Install dependencies
 
