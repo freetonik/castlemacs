@@ -365,7 +365,7 @@ point reaches the beginning or end of the buffer, stop there."
 (use-package expand-region
   :config
   (global-set-key (kbd "s-'") 'er/expand-region)         ;; Cmd+' (apostrophe) to expand
-  (global-set-key (kbd "s-S-'") 'er/contract-region))    ;; Cmd+" (same, but with shift) to contract
+  (global-set-key (kbd "s-\"") 'er/contract-region))     ;; Cmd+" (same, but with shift) to contract
 
 
 ;; Move-text lines around with meta-up/down.
