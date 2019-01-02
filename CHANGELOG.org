@@ -1,10 +1,11 @@
 #+TITLE: Changelog
 
+** 0.0.4 (Jan 1, 2019)
+- fixed contract region
 ** 0.0.3 (Sep 20, 2018)
 - I, J, K, L for navigation
 - =emmet=
 - scroll other window bindings
-
 ** 0.0.2 (Sep 19, 2018)
 - =ivy= and =counsel= instead of =Helm=
 - simpler =Neotree=
