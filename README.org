@@ -102,7 +102,7 @@ It works, but it is not built for terminal use, since one of the Core Principles
 
 *Why is it called Castlemacs?* See [[#why-this-name][Why this name?]]
 
-*Where do I store my private config?* You can store your regular private config in =private.el=. This file will not be changed in Castlemacs, so you don't have worry about conflicts.
+*Where do I store my private config?* You can store your regular private config in =~/.emacs.d/private.el=. This file will not be changed in Castlemacs, so you don't have worry about conflicts.
 
 * Installation
 

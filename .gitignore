@@ -7,3 +7,5 @@ projectile-bookmarks.eld
 bookmarks
 auto-save-list/
 README.html
+private.el
+early-init-private.el
