@@ -4,6 +4,8 @@
 ;; ====
 ;; INIT
 
+;; Increase the garbage collection threshold to 500 MB to ease startup
+(setq gc-cons-threshold (* 500 1024 1024))
 
 ;; Package system and sources.
 (require 'package)
@@ -76,6 +78,9 @@
 ;; =============
 ;; SANE DEFAULTS
 
+;; Hide toolbar and scroll bar
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Smoother and nicer scrolling
 (setq scroll-margin 10
@@ -137,7 +142,6 @@
 (global-set-key (kbd "s-S") 'write-file)              ;; save as
 (global-set-key (kbd "s-q") 'save-buffers-kill-emacs) ;; quit
 (global-set-key (kbd "s-a") 'mark-whole-buffer)       ;; select all
-;; (global-set-key (kbd "s-z") 'undo)
 
 
 ;; Delete trailing spaces and add new line in the end of a file on save.
@@ -163,31 +167,33 @@
 ;; =======
 ;; VISUALS
 
-
-;; Enable transparent title bar on macOS
-(when (memq window-system '(mac ns))
-  (add-to-list 'default-frame-alist '(ns-appearance . light)) ;; {light, dark}
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t)))
-
-
 ;; Font
-(when (member "menlo" (font-family-list))
-  (set-face-attribute 'default nil :font "Menlo 15"))
+(set-face-attribute
+ 'default (selected-frame) :font
+ "-*-Monaco-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1")
+
+;; Set correct font for emacsclient
+(add-to-list 'default-frame-alist
+             '(font . "-*-Monaco-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"))
+
 (setq-default line-spacing 2)
 
-
 ;; Nice and simple default light theme.
-(load-theme 'tsdh-light)
+(use-package github-theme :defer t)
+(use-package dracula-theme :defer t)
+(use-package solarized-theme :defer t)
+
+(use-package circadian
+  :ensure t
+  :config
+  (setq circadian-themes '(("8:00" . github)
+                           ("19:00" . solarized-dark)))
+  (circadian-setup))
 
 
 ;; Pretty icons
 (use-package all-the-icons)
 ;; MUST DO M-x all-the-icons-install-fonts after
-
-
-;; Hide toolbar and scroll bar
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
 
 
 ;; Always wrap lines
@@ -197,6 +203,8 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
+;; Show column number in mode line
+(column-number-mode 1)
 
 ;; Show parens and other pairs.
 (use-package smartparens
@@ -212,11 +220,6 @@
   :config
   (rich-minority-mode 1)
   (setf rm-blacklist ""))
-
-
-;; Set colors to distinguish between active and inactive windows
-(set-face-attribute 'mode-line nil :background "SlateGray1")
-(set-face-attribute 'mode-line-inactive nil :background "grey93")
 
 
 ;; File tree
@@ -277,9 +280,9 @@
 ;; Move around with Cmd+i/j/k/l. This is not for everybody, and it takes away four very well placed
 ;; key combinations, but if you get used to using these keys instead of arrows, it will be worth it,
 ;; I promise.
-(global-set-key (kbd "s-i") 'previous-line)
-(global-set-key (kbd "s-k") 'next-line)
-(global-set-key (kbd "s-j") 'left-char)
+(global-set-key (kbd "s-k") 'previous-line)
+(global-set-key (kbd "s-j") 'next-line)
+(global-set-key (kbd "s-h") 'left-char)
 (global-set-key (kbd "s-l") 'right-char)
 
 
@@ -369,6 +372,8 @@ point reaches the beginning or end of the buffer, stop there."
 
 
 ;; Move-text lines around with meta-up/down.
+;; M-up - move-text-up
+;; M-down - move-text-down
 (use-package move-text
   :config
   (move-text-default-bindings))
@@ -505,7 +510,9 @@ point reaches the beginning or end of the buffer, stop there."
 ;; Better menus with Counsel (a layer on top of Ivy)
 (use-package counsel
   :config
-  (global-set-key (kbd "M-x") 'counsel-M-x)            ;; Alt+x run command
+  (setq counsel-grep-base-command
+        "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
+   (global-set-key (kbd "M-x") 'counsel-M-x)            ;; Alt+x run command
   (global-set-key (kbd "s-P") 'counsel-M-x)            ;; Cmd+Shift+p run command
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)  ;; Replace built-in Emacs 'find file' (open file) with Counsel
   (global-set-key (kbd "s-o") 'counsel-find-file))     ;; Cmd+o open file
@@ -533,6 +540,21 @@ point reaches the beginning or end of the buffer, stop there."
 
 (setq projectile-completion-system 'ivy)             ;; Use Ivy in Projectile
 
+;; Jump to definition package
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
+  :ensure)
+
+;; Fast and beautiful text search
+(use-package deadgrep
+  :bind ((
+          "M-g g" . #'deadgrep)))
+
 
 ;; ========================
 ;; VERSION CONTROL WITH GIT
@@ -550,9 +572,7 @@ point reaches the beginning or end of the buffer, stop there."
   :config
   (global-git-gutter-mode 't)
   (set-face-background 'git-gutter:modified 'nil)   ;; background color
-  (set-face-foreground 'git-gutter:added "green4")
-  (set-face-foreground 'git-gutter:deleted "red"))
-
+)
 
 ;; ========
 ;; TERMINAL
@@ -569,11 +589,22 @@ point reaches the beginning or end of the buffer, stop there."
 ;; CODE COMPLETION
 
 
+;;(use-package company
+;;  :config
+;;  (setq company-idle-delay 0.1)
+;;  (setq company-global-modes '(not org-mode))
+;;  (setq company-minimum-prefix-length 1)
+;;  (add-hook 'after-init-hook 'global-company-mode))
+
 (use-package company
   :config
-  (setq company-idle-delay 0.1)
+  (global-company-mode)
   (setq company-global-modes '(not org-mode))
+  (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 1)
+  (setq completion-ignore-case t)
+  (setq company-dabbrev-downcase nil)
+  (setq company-selection-wrap-around t)
   (add-hook 'after-init-hook 'global-company-mode))
 
 
@@ -588,6 +619,7 @@ point reaches the beginning or end of the buffer, stop there."
 
 ;; Spellchecking requires an external command to be available. Install aspell on your Mac, then make it the default checker for Emacs' ispell. Note that personal dictionary is located at ~/.aspell.LANG.pws by default.
 (setq ispell-program-name "aspell")
+(setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US"))
 
 
 ;; Popup window for spellchecking
@@ -622,6 +654,31 @@ point reaches the beginning or end of the buffer, stop there."
 (use-package define-word
   :config
   (global-set-key (kbd "M-\\") 'define-word-at-point))
+
+
+;; ========
+;; Programming Language Auto completion
+;;
+;; Language Server Protocol for Emacs
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :config (require 'lsp-clients))
+
+(use-package lsp-ui
+  :config
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references)
+  (setq lsp-ui-sideline-enable nil
+        lsp-ui-doc-enable t
+        lsp-ui-flycheck-enable t
+        lsp-ui-imenu-enable t
+        lsp-ui-sideline-ignore-duplicate t))
+
+
+;; if you use company-mode for completion (otherwise, complete-at-point works out of the box):
+(use-package company-lsp
+             :after company
+  :commands company-lsp)
 
 
 ;; ===========
@@ -661,6 +718,27 @@ point reaches the beginning or end of the buffer, stop there."
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook  'emmet-mode)) ;; enable Emmet's css abbreviation.
 ;; Ctrl+j or Ctrl+Enter to expand
+
+;; Go
+(use-package go-mode
+  :mode "\\.go\\'"
+  :custom (gofmt-command "goimports")
+  :config
+  (add-hook 'before-save-hook #'gofmt-before-save)
+  (add-hook 'go-mode-hook #'lsp-deferred))
+
+;; Smaller compilation buffer
+(setq compilation-window-height 14)
+(defun my-compilation-hook ()
+  (when (not (get-buffer-window "*compilation*"))
+    (save-selected-window
+      (save-excursion
+        (let* ((w (split-window-vertically))
+               (h (window-height w)))
+          (select-window w)
+          (switch-to-buffer "*compilation*")
+          (shrink-window (- h compilation-window-height)))))))
+(add-hook 'compilation-mode-hook 'my-compilation-hook)
 
 
 ;; ========
