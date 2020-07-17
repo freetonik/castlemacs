@@ -104,6 +104,8 @@ It works, but it is not built for terminal use, since one of the Core Principles
 
 *Where do I store my private config?* You can store your regular private config in =private.el=. This file will not be changed in Castlemacs, so you don't have worry about conflicts.
 
+*Why does Castlemacs uses the system clipboard separately from the kill ring?* Kill ring system is powerful, but potentially confusing for newcomers. The way it is integrated with the system clipboard by default makes it even more confusing. For these reasons Castlemacs uses the system clipboard only (via the usual macOS key combinations), and keeps the kill ring system independently available to those who want it.
+
 * Installation
 
 ** Install Emacs
