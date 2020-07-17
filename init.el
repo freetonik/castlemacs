@@ -146,18 +146,9 @@
 
 
 ;; Linear undo and redo.
-(use-package undo-tree
-  :diminish undo-tree-mode
-  :init
-  (progn
-    (global-undo-tree-mode)
-    (setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/tmp/undo"))
-          undo-tree-auto-save-history t
-          undo-tree-visualizer-timestamps t
-          undo-tree-visualizer-diff t)))
-
-(global-set-key (kbd "s-z") 'undo-tree-undo)
-(global-set-key (kbd "s-Z") 'undo-tree-redo)
+(use-package undo-fu)
+(global-set-key (kbd "s-z")   'undo-fu-only-undo)
+(global-set-key (kbd "s-Z") 'undo-fu-only-redo)
 
 
 ;; =======
