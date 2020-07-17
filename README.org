@@ -129,10 +129,10 @@ ln -s /usr/local/opt/emacs-mac/Emacs.app /Applications
 
 ** Install dependencies
 
-Castlemacs relies on [[https://github.com/ggreer/the_silver_searcher][The Silver Searcher]] to quickly search within a project. Install it:
+Castlemacs relies on [[https://github.com/BurntSushi/ripgrep][ripgrep]] to quickly search within a project. Install it:
 
 #+BEGIN_SRC sh
-brew install the_silver_searcher
+brew install ripgrep
 #+END_SRC
 
 Castlemacs requires =aspell=, a Free and Open Source spell checker. Install it:

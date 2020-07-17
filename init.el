@@ -519,7 +519,7 @@ point reaches the beginning or end of the buffer, stop there."
   (counsel-projectile-mode 1)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
   (global-set-key (kbd "s-p") 'counsel-projectile-find-file)         ;; Cmd+p open file in current project
-  (global-set-key (kbd "s-F") 'counsel-projectile-ag))     ;; Cmd+Shift+F search in current git repository
+  (global-set-key (kbd "s-F") 'counsel-projectile-rg))     ;; Cmd+Shift+F search in current git repository
 
 
 (setq projectile-completion-system 'ivy)             ;; Use Ivy in Projectile

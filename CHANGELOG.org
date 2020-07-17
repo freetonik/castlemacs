@@ -1,5 +1,8 @@
 #+TITLE: Changelog
 
+** 0.0.5 (Jul 17, 2020)
+- switched from =undo-tree= to =undo-fu= for simpler and more robust undo/redo
+- switched from =ag= to =ripgrep=
 ** 0.0.4 (Jan 1, 2019)
 - fixed contract region
 ** 0.0.3 (Sep 20, 2018)
@@ -11,6 +14,5 @@
 - simpler =Neotree=
 - added =git-gutter=
 - added word definition lookup
-
 ** 0.0.1 (Sep 12, 2018)
 - first release
